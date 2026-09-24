@@ -569,6 +569,36 @@ img {
     margin-bottom: 1.5rem;
 }
 
+/* Typewriter Animation Styles */
+.typewriter-container {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    min-height: 1.2em;
+}
+
+.typewriter-text {
+    display: inline;
+    color: var(--text-primary);
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    font-weight: 300;
+    color: var(--accent-brown);
+    animation: typewriter-pulse 0.75s ease-in-out infinite alternate;
+}
+
+@keyframes typewriter-pulse {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.15;
+    }
+}
+
 .hero-subtitle {
     font-size: 1.1rem;
     color: var(--text-secondary);

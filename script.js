@@ -454,6 +454,59 @@ function initLiquidMetalButtons(container = document) {
             }, 700);
         });
     });
+
+    // 6. Hero Typewriter Animation Effect
+    function initTypewriter() {
+        const typewriterEl = document.getElementById('hero-typewriter');
+        if (!typewriterEl) return;
+
+        const phrases = [
+            "Seu tratamento também deve ser."
+        ];
+        
+        const speed = 90;
+        const deleteSpeed = 45;
+        const delay = 2200;
+        const loop = true;
+
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        typewriterEl.textContent = '';
+
+        function typeStep() {
+            const currentPhrase = phrases[phraseIndex];
+
+            if (!isDeleting) {
+                charIndex++;
+                typewriterEl.textContent = currentPhrase.slice(0, charIndex);
+
+                if (charIndex === currentPhrase.length) {
+                    if (!loop && phraseIndex === phrases.length - 1) return;
+                    
+                    isDeleting = true;
+                    setTimeout(typeStep, delay);
+                    return;
+                }
+            } else {
+                charIndex--;
+                typewriterEl.textContent = currentPhrase.slice(0, charIndex);
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                }
+            }
+
+            const nextTimeout = isDeleting ? deleteSpeed : speed;
+            setTimeout(typeStep, nextTimeout);
+        }
+
+        setTimeout(typeStep, 600);
+    }
+
+    initTypewriter();
 }
 
 // Ensure execution whether DOM is already loaded or still loading
