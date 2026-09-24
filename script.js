@@ -495,6 +495,71 @@ function initLiquidMetalButtons(container = document) {
     }
 
     initTypewriter();
+
+    // 7. About Video Interactive Controls (Play/Pause on click, Mute/Unmute toggle)
+    function initAboutVideoControls() {
+        const video = document.getElementById('about-video');
+        const soundBtn = document.getElementById('video-sound-toggle');
+        const playIndicator = document.getElementById('video-play-indicator');
+        const videoFrame = document.getElementById('about-video-frame');
+
+        if (!video) return;
+
+        // Sound Mute / Unmute toggle
+        if (soundBtn) {
+            soundBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevents frame click from triggering pause/play
+                video.muted = !video.muted;
+                updateSoundState();
+            });
+        }
+
+        function updateSoundState() {
+            if (!soundBtn) return;
+            const iconMuted = soundBtn.querySelector('.sound-icon-muted');
+            const iconUnmuted = soundBtn.querySelector('.sound-icon-unmuted');
+            const btnText = soundBtn.querySelector('.sound-btn-text');
+
+            if (video.muted) {
+                if (iconMuted) iconMuted.style.display = 'block';
+                if (iconUnmuted) iconUnmuted.style.display = 'none';
+                if (btnText) btnText.textContent = 'Ativar som';
+                soundBtn.setAttribute('aria-label', 'Ativar som');
+            } else {
+                if (iconMuted) iconMuted.style.display = 'none';
+                if (iconUnmuted) iconUnmuted.style.display = 'block';
+                if (btnText) btnText.textContent = 'Com som';
+                soundBtn.setAttribute('aria-label', 'Desativar som');
+            }
+        }
+
+        // Play/Pause toggle when clicking on video or video frame
+        const togglePlay = () => {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        };
+
+        if (videoFrame) {
+            videoFrame.addEventListener('click', (e) => {
+                // If user clicks directly on floating badge or sound button, ignore
+                if (e.target.closest('.video-sound-btn') || e.target.closest('.about-floating-badge')) return;
+                togglePlay();
+            });
+        }
+
+        video.addEventListener('play', () => {
+            if (playIndicator) playIndicator.classList.remove('paused');
+        });
+
+        video.addEventListener('pause', () => {
+            if (playIndicator) playIndicator.classList.add('paused');
+        });
+    }
+
+    initAboutVideoControls();
 }
 
 // Ensure execution whether DOM is already loaded or still loading

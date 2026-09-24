@@ -1326,6 +1326,9 @@ img {
 
 .about-image-frame {
     position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
 }
 
 .about-img {
@@ -1335,7 +1338,69 @@ img {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--border-color);
+    display: block;
 }
+
+/* Sound Mute/Unmute Toggle Button */
+.video-sound-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(37, 33, 30, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-full);
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    user-select: none;
+}
+
+.video-sound-btn:hover {
+    background: rgba(168, 109, 66, 0.9);
+    border-color: rgba(255, 255, 255, 0.45);
+    transform: scale(1.04);
+}
+
+/* Pause / Play Central Indicator */
+.video-play-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(37, 33, 30, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.video-play-indicator.paused {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
 
 .about-floating-badge {
     position: absolute;
