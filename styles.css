@@ -543,7 +543,7 @@ img {
 
 /* 6. Hero Section */
 .hero-section {
-    padding-top: 8.5rem;
+    padding-top: 6.8rem;
     padding-bottom: 0;
     position: relative;
     overflow: hidden;
@@ -557,8 +557,8 @@ img {
 }
 
 .hero-content {
-    padding-top: 2rem;
-    padding-bottom: 5.5rem;
+    padding-top: 0;
+    padding-bottom: 4.5rem;
 }
 
 .hero-title {
@@ -599,7 +599,7 @@ img {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 660px;
+    max-width: 720px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -608,9 +608,9 @@ img {
 
 .hero-main-img {
     width: 100%;
-    max-width: 660px;
+    max-width: 720px;
     height: auto;
-    max-height: 750px;
+    max-height: 820px;
     object-fit: contain;
     display: block;
     margin-bottom: 0;
@@ -1771,7 +1771,8 @@ img {
     }
 
     .hero-main-img {
-        max-height: 520px;
+        max-height: 600px;
+        max-width: 580px;
     }
 
     .tabs-container {
@@ -1810,7 +1811,8 @@ img {
     }
 
     .hero-main-img {
-        max-height: 380px;
+        max-height: 480px;
+        max-width: 100%;
     }
 
     .quote-card,
