@@ -3,10 +3,10 @@ const ShaderMount = typeof window !== 'undefined' ? window.ShaderMount : null;
 const liquidMetalFragmentShader = typeof window !== 'undefined' ? window.liquidMetalFragmentShader : null;
 
 function initApp() {
-    
+
     // 1. Sticky Header Blur Effect on Scroll
     const header = document.getElementById('site-header');
-    
+
     const handleScroll = () => {
         if (!header) return;
         if (window.scrollY > 40) {
@@ -15,7 +15,7 @@ function initApp() {
             header.classList.remove('scrolled');
         }
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial check
 
@@ -133,217 +133,353 @@ function initApp() {
     initInteractiveTreatments();
 }
 
-// Data dictionary for treatments
+// Data dictionary for treatments with before & after image pairs
 const treatmentsData = {
     botox: {
+        shortName: 'Botox',
         badge: 'TOXINA BOTULÍNICA',
-        title: 'Botox Preventivo & Reparador',
-        subtitle: 'Suavização precisa de linhas de expressão preservando sua naturalidade',
-        desc: 'Atua relaxando temporariamente os músculos responsáveis pela formação de rugas dinâmicas na testa, glabela e ao redor dos olhos. O plano de aplicação da Dra. Martina prioriza a harmonia facial sem qualquer efeito engessado.',
+        title: 'Botox',
+        subtitle: 'Suaviza expressões. Preserva a sua naturalidade.',
+        desc: 'O Botox é um tratamento seguro e minimamente invasivo que atua relaxando temporariamente a musculatura responsável pelas rugas dinâmicas (testa, glabela e pés de galinha), proporcionando um aspecto mais leve, descansado e harmonioso.',
         benefits: [
-            'Suavização imediata de rugas na testa, glabela e pés de galinha',
-            'Prevenção da transição de rugas dinâmicas em marcas profundas',
+            'Suaviza rugas de expressão (testa, glabela e pés de galinha)',
+            'Previne a formação de novas marcas mantendo a pele jovem',
             'Procedimento rápido (20 min) com retorno imediato à rotina',
-            'Durabilidade média de 4 a 6 meses com efeito gradual e suave'
+            'Resultado natural e gradual valorizando suas feições'
         ],
-        ctaText: 'Quero agendar Botox',
-        waMessage: 'Olá! Gostaria de agendar uma avaliação para o tratamento de Botox (Toxina Botulínica).'
+        features: [
+            { icon: '👤', title: 'Suaviza rugas de expressão', desc: 'Testa, glabela e pés de galinha' },
+            { icon: '🌿', title: 'Previne a formação de novas marcas', desc: 'Mantém a aparência da pele por mais tempo' },
+            { icon: '⏱️', title: 'Procedimento rápido e seguro', desc: 'Em média 20 minutos, com retorno imediato à rotina' },
+            { icon: '✨', title: 'Resultado natural e gradual', desc: 'Valoriza sua expressão sem perder a naturalidade' }
+        ],
+        ctaText: 'Quero agendar meu Botox',
+        waMessage: 'Olá! Gostaria de agendar uma consulta para o tratamento de Botox.',
+        resultSubtitle: 'Pele mais leve, expressão mais descansada.',
+        antesImg: 'assets/images/botox_antes.jpg',
+        depoisImg: 'assets/images/botox_depois.jpg'
     },
     colageno: {
+        shortName: 'Bioestimuladores',
         badge: 'BIOESTIMULADORES DE COLÁGENO',
-        title: 'Radiesse & Sculptra',
-        subtitle: 'Restauração da firmeza, densidade e elasticidade profunda da pele',
-        desc: 'Substâncias injetáveis biocompatíveis que estimulam as células do próprio organismo a produzirem novas fibras de colágeno e elastina de forma contínua por até 2 anos. Melhora notavelmente a flacidez facial e cervical.',
+        title: 'Bioestimuladores de Colágeno',
+        subtitle: 'Firmeza, densidade e sustentação contínua.',
+        desc: 'Substâncias biocompatíveis (Radiesse e Sculptra) injetadas para estimular as células do seu próprio organismo a produzirem novas fibras de colágeno e elastina de forma contínua por até 2 anos.',
         benefits: [
-            'Recuperação da sustentação e espessura dérmica natural',
-            'Efeito lifting progressivo sem volumização excessiva',
-            'Pele visivelmente mais compacta, viçosa e rejuvenescida',
-            'Resultados de longa duração com produção ativa de colágeno'
+            'Estimulação profunda do seu próprio colágeno de forma biológica',
+            'Efeito lifting progressivo e firmeza sem volumização excessiva',
+            'Melhora o viço, textura e densidade da pele por até 2 anos',
+            'Resultados duradouros com protocolos Radiesse e Sculptra'
+        ],
+        features: [
+            { icon: '✨', title: 'Estimulação profunda de colágeno', desc: 'Recupera a densidade dérmica de forma biológica' },
+            { icon: '🌿', title: 'Efeito lifting progressivo', desc: 'Firmeza visível sem volumização excessiva' },
+            { icon: '💧', title: 'Melhora o viço e textura', desc: 'Pele visivelmente mais compacta e jovem' },
+            { icon: '🛡️', title: 'Resultados duradouros', desc: 'Produção ativa por até 24 meses com acompanhamento médico' }
         ],
         ctaText: 'Quero agendar Bioestimuladores',
-        waMessage: 'Olá! Gostaria de agendar uma avaliação para Bioestimuladores de Colágeno.'
+        waMessage: 'Olá! Gostaria de agendar uma consulta para Bioestimuladores de Colágeno.',
+        resultSubtitle: 'Recuperação da densidade e firmeza natural da pele.',
+        antesImg: 'assets/images/colageno_antes.jpg',
+        depoisImg: 'assets/images/colageno_depois.jpg'
     },
     preenchimento: {
+        shortName: 'Preenchimento',
         badge: 'ÁCIDO HIALURÔNICO',
         title: 'Preenchimento Estratégico',
-        subtitle: 'Restauração de volumes perdidos e definição dos contornos faciais',
-        desc: 'Utilizado com ácido hialurônico de alta tecnologia médica em pontos específicos de sustentação: maçãs do rosto (malar), contorno mandibular, mento, olheiras profundas e hidratação labial delicada.',
+        subtitle: 'Harmonia, sustentação e hidratação profunda.',
+        desc: 'Aplicação médica em pontos anatômicos estratégicos de sustentação facial. Restaura volumes perdidos e refina contornos mantendo a sofisticação natural da sua face.',
         benefits: [
-            'Reposição de volume nos compartimentos de gordura reabsorvidos',
-            'Melhora visível da harmonia, do perfil e do contorno facial',
-            'Hidratação profunda imediata com ácido hialurônico premium',
-            'Técnica médica refinada que evita qualquer estigma artificial'
+            'Restabelecimento de volume em pontos estratégicos (maçãs, mento, mandíbula)',
+            'Hidratação e contorno labial delicado e natural',
+            'Uso exclusivo de ácido hialurônico premium biocompatível',
+            'Efeito imediato e harmonioso com acabamento imperceptível'
+        ],
+        features: [
+            { icon: '💎', title: 'Restabelecimento de volume', desc: 'Sustentação precisa de maçãs do rosto, mandíbula e mento' },
+            { icon: '💋', title: 'Hidratação e contorno labial', desc: 'Realce delicado e natural dos lábios' },
+            { icon: '💧', title: 'Ácido hialurônico premium', desc: 'Alta biocompatibilidade e segurança médica' },
+            { icon: '✨', title: 'Efeito imediato e harmonioso', desc: 'Sem estigmas artificiais ou exageros' }
         ],
         ctaText: 'Quero agendar Preenchimento',
-        waMessage: 'Olá! Gostaria de agendar uma avaliação para Preenchimento com Ácido Hialurônico.'
+        waMessage: 'Olá! Gostaria de agendar uma consulta para Preenchimento com Ácido Hialurônico.',
+        resultSubtitle: 'Restauração de contornos com acabamento imperceptível.',
+        antesImg: 'assets/images/preenchimento_antes.jpg',
+        depoisImg: 'assets/images/preenchimento_depois.jpg'
     },
     ultraformer: {
+        shortName: 'Ultrassom MPT',
         badge: 'ULTRASSOM MICROFOCADO',
         title: 'Ultraformer MPT',
-        subtitle: 'Lifting não-invasivo da face, contorno da mandíbula e papada',
-        desc: 'Tecnologia padrão-ouro em ultrassom micro e macrofocado que atinge as camadas mais profundas (fáscia muscular SMAS), promovendo pontos de coagulação térmica que contraem o tecido e ativam colágeno intensamente.',
+        subtitle: 'Lifting não invasivo, firmeza e contorno definido.',
+        desc: 'Tecnologia avançada de ultrassom micro e macrofocado que atinge as camadas fasciais profundas (SMAS), promovendo pontos de coagulação térmica que tracionam e firmam a pele.',
         benefits: [
-            'Efeito lifting facial sem cortes, sem cirurgia e sem repouso',
-            'Definição acentuada do contorno mandibular e redução de papada',
-            'Tratamento seguro realizável em qualquer época do ano',
-            'Resultados visíveis logo após a sessão com pico aos 90 dias'
+            'Lifting facial sem cortes, sem cirurgia e sem tempo de repouso',
+            'Definição do contorno mandibular e redução de papada',
+            'Estímulo duplo de colágeno nas camadas profundas (SMAS)',
+            'Procedimento seguro realizável durante todo o ano'
         ],
-        ctaText: 'Quero agendar Ultraformer',
-        waMessage: 'Olá! Gostaria de agendar uma sessão de Ultraformer MPT.'
+        features: [
+            { icon: '⚡', title: 'Lifting facial sem cortes', desc: 'Tracionamento dos tecidos sem cirurgia ou repouso' },
+            { icon: '🎯', title: 'Definição mandibular e papada', desc: 'Redução da gordura localizada e compactação tecidual' },
+            { icon: '🌿', title: 'Estímulo duplo de colágeno', desc: 'Ação imediata com pico de resultados aos 90 dias' },
+            { icon: '🛡️', title: 'Procedimento seguro e rápido', desc: 'Realizável em qualquer época do ano' }
+        ],
+        ctaText: 'Quero agendar Ultraformer MPT',
+        waMessage: 'Olá! Gostaria de agendar uma sessão de Ultraformer MPT.',
+        resultSubtitle: 'Efeito lifting sem cortes e contorno mandibular nítido.',
+        antesImg: 'assets/images/ultraformer_antes.jpg',
+        depoisImg: 'assets/images/ultraformer_depois.jpg'
     },
     laser: {
+        shortName: 'Laser & Manchas',
         badge: 'LASER & CLAREAMENTO',
-        title: 'Tratamento de Melasma & Manchas',
-        subtitle: 'Uniformização do tom de pele e controle contínuo de hiperpigmentações',
-        desc: 'Combinação médica de lasers de pulso ultracurto, peelings magistrais e ativos dermatológicos para degradar o excesso de melanina com segurança, controlando o melasma e manchas solares sem efeito rebote.',
+        title: 'Laser & Controle de Melasma',
+        subtitle: 'Uniformidade do tom, clareamento e viço incomparável.',
+        desc: 'Combinação médica de tecnologia a laser e ativos dermatológicos focados na degradação segura de pigmentos profundos e no controle do melasma sem efeito rebote.',
         benefits: [
-            'Clareamento progressivo e seguro de manchas solares e melasma',
-            'Melhora global da textura, fechamento de poros e viço da pele',
-            'Plano homecare associado para estabilização contínua do pigmento',
-            'Segurança em todos os fototipos de pele com supervisão médica'
+            'Clareamento seguro de manchas solares e controle de melasma',
+            'Refinamento da textura da pele e fechamento dos poros',
+            'Tratamento preventivo e manutenção contínua sem efeito rebote',
+            'Segurança comprovada para todos os fototipos faciais'
+        ],
+        features: [
+            { icon: '✨', title: 'Clareamento seguro de manchas', desc: 'Ação efetiva sobre melasma e manchas solares' },
+            { icon: '🔍', title: 'Textura e poros refinados', desc: 'Renovação celular com estímulo de colágeno' },
+            { icon: '🛡️', title: 'Sem efeito rebote', desc: 'Protocolos com acompanhamento e homecare médico' },
+            { icon: '☀️', title: 'Segurança em todos os fototipos', desc: 'Aplicação médica individualizada' }
         ],
         ctaText: 'Quero agendar Laser & Manchas',
-        waMessage: 'Olá! Gostaria de agendar uma avaliação para Tratamento de Manchas e Melasma.'
+        waMessage: 'Olá! Gostaria de agendar uma consulta para Tratamento de Manchas e Melasma.',
+        resultSubtitle: 'Pele uniforme, sem manchas e com luminosidade natural.',
+        antesImg: 'assets/images/laser_antes.jpg',
+        depoisImg: 'assets/images/laser_depois.jpg'
     }
 };
 
 function initInteractiveTreatments() {
-    const defaultView = document.getElementById('treatment-default-view');
-    const detailView = document.getElementById('treatment-detail-view');
-    const infoPanel = document.getElementById('treatments-info-panel');
+    const overviewGrid = document.getElementById('treatments-overview-grid');
+    const detailContainer = document.getElementById('treatment-detail-container');
+    const pillsBar = document.getElementById('treatments-pills-bar');
+    const pillBtns = document.querySelectorAll('.treatment-pill-btn');
+    const backOverviewBtn = document.getElementById('btn-back-overview');
     const cards = document.querySelectorAll('.treatment-card');
     const track = document.getElementById('treatments-cards-track');
     const dots = document.querySelectorAll('#treatments-dots .carousel-dot');
     const prevBtn = document.getElementById('treatments-prev-btn');
     const nextBtn = document.getElementById('treatments-next-btn');
 
-    if (!defaultView || !detailView || !cards.length) return;
+    if (!overviewGrid || !detailContainer || !cards.length) return;
 
     let activeTreatmentKey = null;
 
-    // Reset to default overview view
-    function resetToDefault() {
-        if (!activeTreatmentKey) return;
+    // Reset to overview cards view
+    function resetToOverview() {
         activeTreatmentKey = null;
 
-        cards.forEach(c => {
-            c.classList.remove('active');
-            const footerLabel = c.querySelector('.footer-label');
-            const footerIcon = c.querySelector('.footer-icon');
-            if (footerLabel) footerLabel.textContent = 'Clique para saber mais';
-            if (footerIcon) footerIcon.textContent = '+';
-        });
+        cards.forEach(c => c.classList.remove('active'));
 
-        detailView.classList.remove('active');
-        detailView.style.display = 'none';
+        if (pillsBar) pillsBar.style.display = 'none';
+        detailContainer.style.display = 'none';
+        detailContainer.innerHTML = '';
 
-        defaultView.style.display = 'block';
-        defaultView.classList.add('active');
+        overviewGrid.style.display = 'grid';
+
+        // Scroll smoothly to section top if needed
+        const section = document.getElementById('tratamentos');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     }
 
-    // Show details for specific treatment
+    // Show detailed treatment view with Before/After comparison slider
     function showTreatmentDetails(key) {
         const data = treatmentsData[key];
         if (!data) return;
 
         activeTreatmentKey = key;
 
-        // Update active class on cards
-        cards.forEach(c => {
-            const isTarget = c.getAttribute('data-treatment') === key;
-            c.classList.toggle('active', isTarget);
-            const footerLabel = c.querySelector('.footer-label');
-            const footerIcon = c.querySelector('.footer-icon');
-            if (footerLabel) footerLabel.textContent = isTarget ? 'Fechar detalhes' : 'Clique para saber mais';
-            if (footerIcon) footerIcon.textContent = isTarget ? '−' : '+';
+        // Hide overview grid, show pills bar & detail view
+        overviewGrid.style.display = 'none';
+        if (pillsBar) pillsBar.style.display = 'flex';
+        detailContainer.style.display = 'block';
+
+        // Update active pills
+        pillBtns.forEach(btn => {
+            const pillTarget = btn.getAttribute('data-pill');
+            if (pillTarget) {
+                btn.classList.toggle('active', pillTarget === key);
+            }
         });
 
-        // Populate detail HTML
-        detailView.innerHTML = `
-            <div class="detail-header">
-                <button type="button" class="btn-back-overview" id="btn-back-overview" aria-label="Voltar para visão geral">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                    Voltar à visão geral
-                </button>
-                <span class="tag-label">${data.badge}</span>
-            </div>
-            <h2 class="section-title headline-large" style="margin-bottom: 0.5rem; font-size: clamp(1.85rem, 2.5vw, 2.35rem);">${data.title}</h2>
-            <p class="treatment-detail-subtitle">${data.subtitle}</p>
-            <p class="section-description" style="margin-bottom: 1.5rem; font-size: 1rem; max-width: 520px;">${data.desc}</p>
-            <ul class="treatment-detail-benefits">
-                ${data.benefits.map(b => `<li><span class="check-bullet">✓</span>${b}</li>`).join('')}
-            </ul>
-            <div class="treatments-action-row">
-                <a href="https://wa.me/5500000000000?text=${encodeURIComponent(data.waMessage)}" 
-                   target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large liquid-metal-btn">
-                    <div class="liquid-metal-shader"></div>
-                    <div class="liquid-metal-core"></div>
-                    <span class="btn-text">${data.ctaText}</span>
-                    <span class="btn-arrow-icon">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </span>
-                </a>
+        // Re-trigger fluid motion animation on detailContainer
+        detailContainer.style.animation = 'none';
+        detailContainer.offsetHeight; // trigger reflow
+        detailContainer.style.animation = null;
+
+        const benefitsItems = data.benefits || (data.features ? data.features.map(f => `${f.title}: ${f.desc}`) : []);
+
+        // Populate detail HTML matching exact reference text structure
+        detailContainer.innerHTML = `
+            <div class="treatment-detail-grid">
+                <!-- Left Column: Treatment Details -->
+                <div class="treatment-detail-left">
+                    <div class="treatment-detail-badge">
+                        <span class="tag-label">${data.badge}</span>
+                    </div>
+                    <h2 class="treatment-detail-title-main">${data.title}</h2>
+                    <p class="treatment-detail-tagline">${data.subtitle}</p>
+                    <p class="treatment-detail-paragraph">${data.desc}</p>
+                    
+                    <ul class="treatment-detail-benefits">
+                        ${benefitsItems.map(b => `<li><span class="check-icon">✓</span> ${b}</li>`).join('')}
+                    </ul>
+
+                    <div class="treatments-action-row">
+                        <a href="https://wa.me/5500000000000?text=${encodeURIComponent(data.waMessage)}" 
+                           target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large liquid-metal-btn">
+                            <div class="liquid-metal-shader"></div>
+                            <div class="liquid-metal-core"></div>
+                            <span class="btn-text">${data.ctaText}</span>
+                            <span class="btn-arrow-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Resultados Reais Card -->
+                <div class="treatment-detail-right">
+                    <div class="resultados-reais-card">
+                        <div class="resultados-header">
+                            <h3 class="resultados-title">Resultados reais</h3>
+                            <p class="resultados-subtitle">${data.resultSubtitle}</p>
+                        </div>
+                        
+                        <!-- 21st.dev Interactive Image Comparison Slider Component -->
+                        <div class="image-comparison-slider" id="comparison-slider">
+                            <img src="${data.depoisImg}" alt="Resultado Depois" class="comparison-img comparison-after">
+                            
+                            <div class="comparison-overlay" style="width: 50%;">
+                                <img src="${data.antesImg}" alt="Resultado Antes" class="comparison-img comparison-before">
+                            </div>
+                            
+                            <div class="comparison-handle" style="left: 50%;">
+                                <div class="comparison-handle-button">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                        <polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <span class="comparison-badge badge-antes">Antes</span>
+                            <span class="comparison-badge badge-depois">Depois</span>
+                        </div>
+
+                        <p class="resultados-footer-note">Resultados podem variar de acordo com as características individuais de cada paciente.</p>
+                    </div>
+                </div>
             </div>
         `;
 
-        // Switch views
-        defaultView.classList.remove('active');
-        defaultView.style.display = 'none';
+        // Initialize Liquid Metal shader on newly injected CTA button
+        initLiquidMetalButtons(detailContainer);
 
-        detailView.style.display = 'block';
-        detailView.classList.add('active');
+        // Bind interactive image comparison slider events
+        const slider = detailContainer.querySelector('#comparison-slider');
+        if (slider) {
+            initComparisonSliderEvents(slider);
+        }
 
-        // Init Liquid Metal Button on newly injected CTA
-        initLiquidMetalButtons(detailView);
-
-        // Bind back button
-        const backBtn = detailView.querySelector('#btn-back-overview');
-        if (backBtn) {
-            backBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                resetToDefault();
-            });
+        // Scroll section smoothly into view
+        const section = document.getElementById('tratamentos');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
 
-    // Handle card clicks
-    cards.forEach(card => {
-        const key = card.getAttribute('data-treatment');
+    // 21st.dev Image Comparison Slider Touch & Drag Engine
+    function initComparisonSliderEvents(slider) {
+        const overlay = slider.querySelector('.comparison-overlay');
+        const handle = slider.querySelector('.comparison-handle');
+        if (!overlay || !handle) return;
 
-        const triggerAction = (e) => {
-            e.stopPropagation();
-            if (activeTreatmentKey === key) {
-                resetToDefault();
-            } else {
-                showTreatmentDetails(key);
-            }
+        let isDragging = false;
+
+        function updateSlider(clientX) {
+            const rect = slider.getBoundingClientRect();
+            let x = clientX - rect.left;
+            if (x < 0) x = 0;
+            if (x > rect.width) x = rect.width;
+
+            const percentage = (x / rect.width) * 100;
+            overlay.style.width = `${percentage}%`;
+            handle.style.left = `${percentage}%`;
+        }
+
+        const onStart = (e) => {
+            isDragging = true;
+            const pageX = e.touches ? e.touches[0].clientX : e.clientX;
+            updateSlider(pageX);
         };
 
-        card.addEventListener('click', triggerAction);
+        const onMove = (e) => {
+            if (!isDragging) return;
+            const pageX = e.touches ? e.touches[0].clientX : e.clientX;
+            updateSlider(pageX);
+        };
+
+        const onEnd = () => {
+            isDragging = false;
+        };
+
+        slider.addEventListener('mousedown', onStart);
+        slider.addEventListener('touchstart', onStart, { passive: true });
+
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('touchmove', onMove, { passive: true });
+
+        window.addEventListener('mouseup', onEnd);
+        window.addEventListener('touchend', onEnd);
+    }
+
+    // Bind card clicks
+    cards.forEach(card => {
+        const key = card.getAttribute('data-treatment');
+        card.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showTreatmentDetails(key);
+        });
         card.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                triggerAction(e);
+                showTreatmentDetails(key);
             }
         });
     });
 
-    // Dismiss when clicking outside the card and outside the info panel
-    document.addEventListener('click', (e) => {
-        if (!activeTreatmentKey) return;
-        const clickedCard = e.target.closest('.treatment-card');
-        const clickedInfoPanel = e.target.closest('#treatments-info-panel');
-        const clickedCarouselControls = e.target.closest('.treatments-carousel-controls');
-
-        if (!clickedCard && !clickedInfoPanel && !clickedCarouselControls) {
-            resetToDefault();
-        }
+    // Bind pill buttons
+    pillBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const pillTarget = btn.getAttribute('data-pill');
+            if (pillTarget) {
+                showTreatmentDetails(pillTarget);
+            }
+        });
     });
+
+    // Bind back overview button
+    if (backOverviewBtn) {
+        backOverviewBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            resetToOverview();
+        });
+    }
 
     // Carousel Navigation controls
     if (track && prevBtn && nextBtn) {

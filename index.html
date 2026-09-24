@@ -99,179 +99,176 @@
             </div>
         </section>
 
-        <!-- Treatments Section (Interactive Reference Layout) -->
+        <!-- Treatments Section (Interactive Reference & Before/After Layout) -->
         <section class="section treatments-interactive-section" id="tratamentos">
-            <div class="container treatments-layout-grid">
-                
-                <!-- Left Column: Content & Dynamic Treatment Info -->
-                <div class="treatments-info-col" id="treatments-info-panel">
-                    
-                    <!-- Default State: General Overview -->
-                    <div class="treatment-info-view default-view active" id="treatment-default-view">
-                        <div class="section-badge">
-                            <span class="tag-label">Tratamentos Exclusivos</span>
-                        </div>
-                        <h2 class="section-title headline-large">
-                            Cada pele tem suas <span class="highlight-brown">necessidades únicas</span>.
-                        </h2>
-                        <p class="section-description">
-                            Pensando nisso, ofereço uma gama de tratamentos estéticos personalizados para ajudar você a alcançar resultados naturais e duradouros, unindo saúde, estética e tecnologia.
-                        </p>
-                        <div class="treatments-action-row">
-                            <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avaliação." 
-                               target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large liquid-metal-btn">
-                                <div class="liquid-metal-shader"></div>
-                                <div class="liquid-metal-core"></div>
-                                <span class="btn-text">Quero agendar!</span>
-                                <span class="btn-arrow-icon">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="7" y1="17" x2="17" y2="7"></line>
-                                        <polyline points="7 7 17 7 17 17"></polyline>
-                                    </svg>
-                                </span>
-                            </a>
-                        </div>
-                        <div class="treatments-tip">
-                            <span class="tip-icon">✨</span>
-                            <span>Clique em qualquer cartão ao lado para explorar detalhes e indicações.</span>
-                        </div>
-                    </div>
-
-                    <!-- Dynamic State: Detail View (Swapped on Card Click) -->
-                    <div class="treatment-info-view detail-view" id="treatment-detail-view" style="display: none;">
-                        <!-- Dynamically filled by script.js -->
-                    </div>
-
-                </div>
-
-                <!-- Right Column: Interactive Cards Slider -->
-                <div class="treatments-cards-col">
-                    <div class="treatments-carousel-container">
-                        <div class="treatments-cards-track" id="treatments-cards-track">
-                            
-                            <!-- Card 1: Botox -->
-                            <div class="treatment-card border-glow-card" data-treatment="botox" role="button" tabindex="0" aria-label="Ver detalhes de Botox">
-                                <div class="treatment-card-img-wrapper">
-                                    <img src="assets/images/treatment_botox.jpg" alt="Botox - Toxina Botulínica" class="treatment-card-img" loading="lazy">
-                                    <div class="treatment-card-overlay"></div>
-                                </div>
-                                <div class="treatment-card-body">
-                                    <h3 class="treatment-card-title">Botox</h3>
-                                    <span class="treatment-card-subtitle">TOXINA BOTULÍNICA</span>
-                                </div>
-                                <div class="treatment-card-footer">
-                                    <span class="footer-label">Clique para saber mais</span>
-                                    <span class="footer-icon">+</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 2: Bioestimuladores -->
-                            <div class="treatment-card border-glow-card" data-treatment="colageno" role="button" tabindex="0" aria-label="Ver detalhes de Bioestimuladores de Colágeno">
-                                <div class="treatment-card-img-wrapper">
-                                    <img src="assets/images/treatment_colageno.jpg" alt="Bioestimuladores de Colágeno" class="treatment-card-img" loading="lazy">
-                                    <div class="treatment-card-overlay"></div>
-                                </div>
-                                <div class="treatment-card-body">
-                                    <h3 class="treatment-card-title">Bioestimuladores<br>de Colágeno</h3>
-                                    <span class="treatment-card-subtitle">RADIESSE & SCULPTRA</span>
-                                </div>
-                                <div class="treatment-card-footer">
-                                    <span class="footer-label">Clique para saber mais</span>
-                                    <span class="footer-icon">+</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 3: Preenchimento -->
-                            <div class="treatment-card border-glow-card" data-treatment="preenchimento" role="button" tabindex="0" aria-label="Ver detalhes de Preenchimento">
-                                <div class="treatment-card-img-wrapper">
-                                    <img src="assets/images/treatment_preenchimento.jpg" alt="Preenchimento com Ácido Hialurônico" class="treatment-card-img" loading="lazy">
-                                    <div class="treatment-card-overlay"></div>
-                                </div>
-                                <div class="treatment-card-body">
-                                    <h3 class="treatment-card-title">Preenchimento</h3>
-                                    <span class="treatment-card-subtitle">ÁCIDO HIALURÔNICO</span>
-                                </div>
-                                <div class="treatment-card-footer">
-                                    <span class="footer-label">Clique para saber mais</span>
-                                    <span class="footer-icon">+</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 4: Ultraformer -->
-                            <div class="treatment-card border-glow-card" data-treatment="ultraformer" role="button" tabindex="0" aria-label="Ver detalhes de Ultrassom Microfocado">
-                                <div class="treatment-card-img-wrapper">
-                                    <img src="assets/images/treatment_ultraformer.jpg" alt="Ultrassom Microfocado Ultraformer" class="treatment-card-img" loading="lazy">
-                                    <div class="treatment-card-overlay"></div>
-                                </div>
-                                <div class="treatment-card-body">
-                                    <h3 class="treatment-card-title">Ultrassom<br>Microfocado</h3>
-                                    <span class="treatment-card-subtitle">ULTRAFORMER MPT</span>
-                                </div>
-                                <div class="treatment-card-footer">
-                                    <span class="footer-label">Clique para saber mais</span>
-                                    <span class="footer-icon">+</span>
-                                </div>
-                            </div>
-
-                            <!-- Card 5: Laser & Melasma -->
-                            <div class="treatment-card border-glow-card" data-treatment="laser" role="button" tabindex="0" aria-label="Ver detalhes de Laser e Melasma">
-                                <div class="treatment-card-img-wrapper">
-                                    <img src="assets/images/treatment_laser.jpg" alt="Laser e Tratamento de Melasma" class="treatment-card-img" loading="lazy">
-                                    <div class="treatment-card-overlay"></div>
-                                </div>
-                                <div class="treatment-card-body">
-                                    <h3 class="treatment-card-title">Laser & Manchas</h3>
-                                    <span class="treatment-card-subtitle">CONTROLE DE MELASMA</span>
-                                </div>
-                                <div class="treatment-card-footer">
-                                    <span class="footer-label">Clique para saber mais</span>
-                                    <span class="footer-icon">+</span>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- Carousel Indicators & Navigation -->
-                        <div class="treatments-carousel-controls">
-                            <button class="carousel-nav-btn prev" id="treatments-prev-btn" aria-label="Tratamento anterior">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="15 18 9 12 15 6"></polyline>
-                                </svg>
-                            </button>
-
-                            <div class="carousel-dots" id="treatments-dots">
-                                <span class="carousel-dot active" data-index="0"></span>
-                                <span class="carousel-dot" data-index="1"></span>
-                                <span class="carousel-dot" data-index="2"></span>
-                                <span class="carousel-dot" data-index="3"></span>
-                                <span class="carousel-dot" data-index="4"></span>
-                            </div>
-
-                            <button class="carousel-nav-btn next" id="treatments-next-btn" aria-label="Próximo tratamento">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Quote / Statement Banner Section -->
-        <section class="quote-banner-section">
             <div class="container">
-                <div class="quote-card">
-                    <h2 class="quote-title">
-                        A verdadeira beleza é o reflexo de uma pele <span class="highlight-brown">saudável</span> e bem
-                        cuidada.
-                    </h2>
-                    <p class="quote-subtitle">
-                        Tecnologia médica de ponta associada a uma visão <strong>ética, cuidadosa e
-                            personalizada</strong> para você.
-                    </p>
+                
+                <!-- Pills Navigation Bar (Visible when detail view is active) -->
+                <div class="treatments-pills-bar" id="treatments-pills-bar" style="display: none;">
+                    <div class="pills-bar-label">
+                        <span class="tag-label">TRATAMENTOS</span>
+                    </div>
+                    <div class="pills-bar-track">
+                        <button class="treatment-pill-btn active" data-pill="botox" type="button">Botox</button>
+                        <button class="treatment-pill-btn" data-pill="colageno" type="button">Bioestimuladores</button>
+                        <button class="treatment-pill-btn" data-pill="preenchimento" type="button">Preenchimento</button>
+                        <button class="treatment-pill-btn" data-pill="ultraformer" type="button">Ultrassom MPT</button>
+                        <button class="treatment-pill-btn" data-pill="laser" type="button">Laser & Manchas</button>
+                        <button class="treatment-pill-btn pill-btn-overview" id="btn-back-overview" type="button">✕ Visão Geral</button>
+                    </div>
                 </div>
+
+                <!-- Initial Overview Grid (Default State) -->
+                <div class="treatments-layout-grid" id="treatments-overview-grid">
+                    
+                    <!-- Left Column: Content Overview -->
+                    <div class="treatments-info-col">
+                        <div class="treatment-info-view default-view active">
+                            <div class="section-badge">
+                                <span class="tag-label">Tratamentos Exclusivos</span>
+                            </div>
+                            <h2 class="section-title headline-large">
+                                Cada pele tem suas <span class="highlight-brown">necessidades únicas</span>.
+                            </h2>
+                            <p class="section-description">
+                                Pensando nisso, ofereço uma gama de tratamentos estéticos personalizados para ajudar você a alcançar resultados naturais e duradouros, unindo saúde, estética e tecnologia.
+                            </p>
+                            <div class="treatments-action-row">
+                                <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avaliação." 
+                                   target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large liquid-metal-btn">
+                                    <div class="liquid-metal-shader"></div>
+                                    <div class="liquid-metal-core"></div>
+                                    <span class="btn-text">Quero agendar!</span>
+                                    <span class="btn-arrow-icon">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                                            <polyline points="7 7 17 7 17 17"></polyline>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Interactive Cards Carousel -->
+                    <div class="treatments-cards-col">
+                        <div class="treatments-carousel-container">
+                            <div class="treatments-cards-track" id="treatments-cards-track">
+                                
+                                <!-- Card 1: Botox -->
+                                <div class="treatment-card" data-treatment="botox" role="button" tabindex="0" aria-label="Ver detalhes de Botox">
+                                    <div class="treatment-card-img-wrapper">
+                                        <img src="assets/images/treatment_botox.jpg" alt="Botox - Toxina Botulínica" class="treatment-card-img" loading="lazy">
+                                        <div class="treatment-card-overlay"></div>
+                                    </div>
+                                    <div class="treatment-card-body">
+                                        <h3 class="treatment-card-title">Botox</h3>
+                                        <span class="treatment-card-subtitle">TOXINA BOTULÍNICA</span>
+                                    </div>
+                                    <div class="treatment-card-footer">
+                                        <span class="footer-label">Clique para saber mais</span>
+                                        <span class="footer-icon">+</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2: Bioestimuladores -->
+                                <div class="treatment-card" data-treatment="colageno" role="button" tabindex="0" aria-label="Ver detalhes de Bioestimuladores de Colágeno">
+                                    <div class="treatment-card-img-wrapper">
+                                        <img src="assets/images/treatment_colageno.jpg" alt="Bioestimuladores de Colágeno" class="treatment-card-img" loading="lazy">
+                                        <div class="treatment-card-overlay"></div>
+                                    </div>
+                                    <div class="treatment-card-body">
+                                        <h3 class="treatment-card-title">Bioestimuladores<br>de Colágeno</h3>
+                                        <span class="treatment-card-subtitle">RADIESSE & SCULPTRA</span>
+                                    </div>
+                                    <div class="treatment-card-footer">
+                                        <span class="footer-label">Clique para saber mais</span>
+                                        <span class="footer-icon">+</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3: Preenchimento -->
+                                <div class="treatment-card" data-treatment="preenchimento" role="button" tabindex="0" aria-label="Ver detalhes de Preenchimento">
+                                    <div class="treatment-card-img-wrapper">
+                                        <img src="assets/images/treatment_preenchimento.jpg" alt="Preenchimento com Ácido Hialurônico" class="treatment-card-img" loading="lazy">
+                                        <div class="treatment-card-overlay"></div>
+                                    </div>
+                                    <div class="treatment-card-body">
+                                        <h3 class="treatment-card-title">Preenchimento</h3>
+                                        <span class="treatment-card-subtitle">ÁCIDO HIALURÔNICO</span>
+                                    </div>
+                                    <div class="treatment-card-footer">
+                                        <span class="footer-label">Clique para saber mais</span>
+                                        <span class="footer-icon">+</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card 4: Ultraformer -->
+                                <div class="treatment-card" data-treatment="ultraformer" role="button" tabindex="0" aria-label="Ver detalhes de Ultrassom Microfocado">
+                                    <div class="treatment-card-img-wrapper">
+                                        <img src="assets/images/treatment_ultraformer.jpg" alt="Ultrassom Microfocado Ultraformer" class="treatment-card-img" loading="lazy">
+                                        <div class="treatment-card-overlay"></div>
+                                    </div>
+                                    <div class="treatment-card-body">
+                                        <h3 class="treatment-card-title">Ultrassom<br>Microfocado</h3>
+                                        <span class="treatment-card-subtitle">ULTRAFORMER MPT</span>
+                                    </div>
+                                    <div class="treatment-card-footer">
+                                        <span class="footer-label">Clique para saber mais</span>
+                                        <span class="footer-icon">+</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card 5: Laser & Melasma -->
+                                <div class="treatment-card" data-treatment="laser" role="button" tabindex="0" aria-label="Ver detalhes de Laser e Melasma">
+                                    <div class="treatment-card-img-wrapper">
+                                        <img src="assets/images/treatment_laser.jpg" alt="Laser e Tratamento de Melasma" class="treatment-card-img" loading="lazy">
+                                        <div class="treatment-card-overlay"></div>
+                                    </div>
+                                    <div class="treatment-card-body">
+                                        <h3 class="treatment-card-title">Laser & Manchas</h3>
+                                        <span class="treatment-card-subtitle">CONTROLE DE MELASMA</span>
+                                    </div>
+                                    <div class="treatment-card-footer">
+                                        <span class="footer-label">Clique para saber mais</span>
+                                        <span class="footer-icon">+</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Carousel Indicators & Navigation -->
+                            <div class="treatments-carousel-controls">
+                                <button class="carousel-nav-btn prev" id="treatments-prev-btn" aria-label="Tratamento anterior">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                    </svg>
+                                </button>
+
+                                <div class="carousel-dots" id="treatments-dots">
+                                    <span class="carousel-dot active" data-index="0"></span>
+                                    <span class="carousel-dot" data-index="1"></span>
+                                    <span class="carousel-dot" data-index="2"></span>
+                                    <span class="carousel-dot" data-index="3"></span>
+                                    <span class="carousel-dot" data-index="4"></span>
+                                </div>
+
+                                <button class="carousel-nav-btn next" id="treatments-next-btn" aria-label="Próximo tratamento">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Dynamic Detailed View with Before & After Slider (Active State) -->
+                <div class="treatment-detail-container" id="treatment-detail-container" style="display: none;">
+                    <!-- Dynamically rendered by script.js -->
+                </div>
+
             </div>
         </section>
 
