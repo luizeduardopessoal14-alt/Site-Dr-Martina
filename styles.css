@@ -253,18 +253,18 @@ img {
     background-color: rgba(255, 255, 255, 0.32);
 }
 
-/* --- Liquid Metal Button Styles (Beige Luxury Theme) --- */
+/* --- Liquid Metal Button Styles (Luxury Accent Brown Theme) --- */
 .liquid-metal-btn {
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    border: 1px solid var(--accent-brown-border);
+    border: 1px solid rgba(212, 139, 56, 0.45);
     background: transparent;
     perspective: 1000px;
     transform-style: preserve-3d;
-    box-shadow: 0 8px 24px rgba(168, 109, 66, 0.16),
-                0 2px 6px rgba(37, 33, 30, 0.06),
-                inset 0 1px 1px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 24px rgba(168, 109, 66, 0.28),
+                0 2px 6px rgba(37, 33, 30, 0.1),
+                inset 0 1px 1px rgba(255, 255, 255, 0.4);
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
                 box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                 border-color 0.3s ease;
@@ -272,18 +272,18 @@ img {
 
 .liquid-metal-btn:hover {
     transform: translateY(-3px) scale(1.02);
-    border-color: var(--accent-brown);
-    box-shadow: 0 14px 32px -4px rgba(168, 109, 66, 0.28),
-                0 0 20px 2px rgba(239, 230, 221, 0.8),
-                inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    border-color: #D48B38;
+    box-shadow: 0 14px 32px -4px rgba(168, 109, 66, 0.42),
+                0 0 20px 2px rgba(212, 139, 56, 0.35),
+                inset 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 .liquid-metal-btn:active {
     transform: translateY(1px) scale(0.985);
-    box-shadow: 0 4px 12px rgba(168, 109, 66, 0.2);
+    box-shadow: 0 4px 12px rgba(168, 109, 66, 0.3);
 }
 
-/* 1. WebGL Canvas & Fallback Shimmer Container (Warm Beige / Nude Gradient) */
+/* 1. WebGL Canvas & Fallback Shimmer Container (Warm Brown Accent Gradient) */
 .liquid-metal-shader {
     position: absolute;
     inset: 0;
@@ -291,7 +291,7 @@ img {
     overflow: hidden;
     pointer-events: none;
     z-index: 1;
-    background: radial-gradient(120% 120% at 50% 10%, #F5EBE1 0%, #E8D9C8 40%, #CEB8A0 100%);
+    background: radial-gradient(120% 120% at 50% 10%, #C88552 0%, #A86D42 40%, #7D4924 100%);
 }
 
 .liquid-metal-shader canvas {
@@ -312,16 +312,16 @@ img {
     background: conic-gradient(
         from 0deg,
         transparent 0deg,
-        rgba(255, 255, 255, 0.85) 45deg,
+        rgba(255, 255, 255, 0.5) 45deg,
         transparent 90deg,
-        rgba(215, 196, 176, 0.6) 180deg,
-        rgba(255, 255, 255, 0.9) 225deg,
+        rgba(240, 200, 150, 0.35) 180deg,
+        rgba(255, 255, 255, 0.6) 225deg,
         transparent 270deg,
-        rgba(255, 255, 255, 0.85) 360deg
+        rgba(255, 255, 255, 0.5) 360deg
     );
     animation: liquid-metal-rotate 5s linear infinite;
     mix-blend-mode: overlay;
-    opacity: 0.7;
+    opacity: 0.65;
     pointer-events: none;
 }
 
@@ -330,23 +330,23 @@ img {
     to { transform: rotate(360deg); }
 }
 
-/* 2. Metallic Core Layer (Beige Body) */
+/* 2. Metallic Core Layer (Brown Body) */
 .liquid-metal-core {
     position: absolute;
     inset: 2px;
     border-radius: inherit;
-    background: linear-gradient(180deg, #EFE6DD 0%, #E4D5C5 100%);
-    box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.9),
-                inset 0 -1.5px 3px rgba(168, 109, 66, 0.15);
+    background: linear-gradient(180deg, #BA7B4A 0%, #985C30 100%);
+    box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.45),
+                inset 0 -1.5px 3px rgba(50, 25, 10, 0.35);
     z-index: 2;
     pointer-events: none;
     transition: background 0.35s ease, box-shadow 0.35s ease;
 }
 
 .liquid-metal-btn:hover .liquid-metal-core {
-    background: linear-gradient(180deg, #F5EDE4 0%, #EADDCF 100%);
-    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 1),
-                inset 0 -1px 2px rgba(168, 109, 66, 0.12);
+    background: linear-gradient(180deg, #C98956 0%, #A46536 100%);
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6),
+                inset 0 -1px 2px rgba(50, 25, 10, 0.25);
 }
 
 /* 3. Text and Arrow Icon Content Layer */
@@ -359,18 +359,18 @@ img {
 
 .liquid-metal-btn .btn-text {
     font-weight: 600;
-    color: var(--text-primary);
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+    color: #FFFFFF;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
     letter-spacing: 0.015em;
 }
 
 .liquid-metal-btn .btn-arrow-icon {
-    background-color: var(--accent-brown);
+    background-color: rgba(255, 255, 255, 0.22);
     color: #FFFFFF;
 }
 
 .liquid-metal-btn:hover .btn-arrow-icon {
-    background-color: var(--accent-brown-hover);
+    background-color: rgba(255, 255, 255, 0.38);
     color: #FFFFFF;
 }
 
