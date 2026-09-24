@@ -585,7 +585,7 @@ img {
     margin-bottom: 0;
 }
 
-/* Hero Visual - Seamless Cutout Image & Background Watermark Monogram */
+/* Hero Visual - Seamless Cutout Image */
 .hero-visual {
     position: relative;
     display: flex;
@@ -593,22 +593,6 @@ img {
     align-items: flex-end;
     margin-bottom: 0;
     width: 100%;
-}
-
-.hero-visual::before {
-    content: 'MV';
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    font-family: var(--font-heading);
-    font-size: clamp(16rem, 30vw, 27rem);
-    font-weight: 300;
-    color: rgba(226, 214, 200, 0.48);
-    line-height: 0.78;
-    letter-spacing: -0.06em;
-    pointer-events: none;
-    z-index: 0;
-    user-select: none;
 }
 
 .hero-image-wrapper {
