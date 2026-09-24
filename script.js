@@ -1,5 +1,6 @@
 // Dra. Martina Valadão - Interactive JavaScript Features, Liquid Metal Buttons & Treatments Showcase
-import { liquidMetalFragmentShader, ShaderMount } from './assets/js/shaders.mjs';
+const ShaderMount = typeof window !== 'undefined' ? window.ShaderMount : null;
+const liquidMetalFragmentShader = typeof window !== 'undefined' ? window.liquidMetalFragmentShader : null;
 
 function initApp() {
     
