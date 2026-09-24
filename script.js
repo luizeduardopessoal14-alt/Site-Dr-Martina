@@ -455,9 +455,10 @@ function initLiquidMetalButtons(container = document) {
         });
     });
 
-    // 6. Hero Typewriter Animation Effect (Runs once on load)
+    // 6. Hero Typewriter Animation Effect (Runs once on load, hides cursor when done)
     function initTypewriter() {
         const typewriterEl = document.getElementById('hero-typewriter');
+        const cursorEl = document.querySelector('.typewriter-cursor');
         if (!typewriterEl) return;
 
         const text = "Seu tratamento também deve ser.";
@@ -465,6 +466,10 @@ function initLiquidMetalButtons(container = document) {
         let charIndex = 0;
 
         typewriterEl.textContent = '';
+        if (cursorEl) {
+            cursorEl.style.opacity = '1';
+            cursorEl.style.display = 'inline-block';
+        }
 
         function typeStep() {
             charIndex++;
@@ -472,6 +477,17 @@ function initLiquidMetalButtons(container = document) {
 
             if (charIndex < text.length) {
                 setTimeout(typeStep, speed);
+            } else {
+                // Hide cursor smoothly once phrase typing finishes
+                setTimeout(() => {
+                    if (cursorEl) {
+                        cursorEl.style.transition = 'opacity 0.4s ease';
+                        cursorEl.style.opacity = '0';
+                        setTimeout(() => {
+                            cursorEl.style.display = 'none';
+                        }, 400);
+                    }
+                }, 600);
             }
         }
 
