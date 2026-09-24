@@ -543,39 +543,38 @@ img {
 
 /* 6. Hero Section */
 .hero-section {
-    padding-top: 6.2rem;
-    padding-bottom: 2rem;
+    padding-top: 8.5rem;
+    padding-bottom: 0;
     position: relative;
     overflow: hidden;
 }
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 2.5rem;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: flex-end;
 }
 
 .hero-content {
-    transform: none;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 1rem;
+    padding-bottom: 5rem;
 }
 
 .hero-title {
-    font-size: clamp(2.2rem, 3.8vw, 3.5rem);
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
     font-weight: 400;
-    line-height: 1.15;
+    line-height: 1.14;
     letter-spacing: -0.025em;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
 }
 
 .hero-subtitle {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 1.75rem;
-    max-width: 500px;
+    line-height: 1.65;
+    margin-bottom: 2.25rem;
+    max-width: 520px;
 }
 
 .hero-actions {
@@ -586,12 +585,12 @@ img {
     margin-bottom: 0;
 }
 
-/* Hero Visual - Seamless Cutout Image */
+/* Hero Visual - Cutout Image touching the section divider line */
 .hero-visual {
     position: relative;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
     margin-bottom: 0;
     width: 100%;
 }
@@ -600,18 +599,18 @@ img {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 540px;
+    max-width: 680px;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
     margin-bottom: 0;
 }
 
 .hero-main-img {
     width: 100%;
-    max-width: 540px;
+    max-width: 680px;
     height: auto;
-    max-height: 580px;
+    max-height: 760px;
     object-fit: contain;
     display: block;
     margin-bottom: 0;
@@ -1809,11 +1808,11 @@ img {
 
     .hero-section {
         padding-top: 7rem;
-        padding-bottom: 3rem;
+        padding-bottom: 0;
     }
 
     .hero-main-img {
-        max-height: 480px;
+        max-height: 520px;
         max-width: 100%;
     }
 
