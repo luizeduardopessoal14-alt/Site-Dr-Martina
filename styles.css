@@ -473,7 +473,8 @@ img {
 }
 
 .footer-logo-image {
-    height: 52px;
+    height: 100px;
+    max-width: 360px;
 }
 
 .logo-symbol {
@@ -2142,7 +2143,7 @@ img {
 
 /* 14. Footer */
 .site-footer {
-    background-color: #1E1A18;
+    background-color: #72573a;
     color: #E2DAD0;
     padding-top: 4.5rem;
 }
@@ -2164,6 +2165,53 @@ img {
     font-size: 0.9rem;
     color: #A39B92;
     max-width: 320px;
+}
+
+.footer-social-links {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+}
+
+.footer-social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #FFFFFF;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-social-btn svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.footer-social-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+}
+
+.footer-social-btn:hover svg {
+    transform: scale(1.1);
+}
+
+.footer-social-btn.whatsapp:hover {
+    background-color: #25D366;
+    border-color: #25D366;
+}
+
+.footer-social-btn.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    border-color: transparent;
 }
 
 .footer-heading {
