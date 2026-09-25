@@ -272,8 +272,8 @@
             </div>
         </section>
 
-        <!-- The Technologies Section -->
-        <section class="section layers-section" id="tecnologias">
+        <!-- The Technologies Section - React Bits Scroll Stack Component (@reactbits-starter/scroll-stack-tw) -->
+        <section class="section scroll-stack-section" id="tecnologias">
             <div class="container">
                 <div class="section-badge center">
                     <span class="tag-label">Alta Tecnologia Médica</span>
@@ -284,136 +284,167 @@
                 </h2>
 
                 <p class="section-description center">
-                    Equipamentos modernos e protocolos consolidados para entregar resultados superiores com o máximo de
-                    conforto.
+                    Equipamentos modernos e protocolos consolidados para entregar resultados superiores com o máximo de conforto.
                 </p>
 
-                <!-- Interactive Tab Component -->
-                <div class="tabs-container" id="layers-tabs-app">
-                    <div class="tabs-nav" role="tablist">
-                        <button class="tab-btn active" data-tab="layer-1" role="tab">
-                            <span class="tab-num">01</span>
-                            Laser & Luz Pulsada
-                        </button>
-                        <button class="tab-btn" data-tab="layer-2" role="tab">
-                            <span class="tab-num">02</span>
-                            Bioestimuladores
-                        </button>
-                        <button class="tab-btn" data-tab="layer-3" role="tab">
-                            <span class="tab-num">03</span>
-                            Ultrassom Microfocado
-                        </button>
-                        <button class="tab-btn" data-tab="layer-4" role="tab">
-                            <span class="tab-num">04</span>
-                            Microagulhamento Robótico
-                        </button>
-                        <button class="tab-btn" data-tab="layer-5" role="tab">
-                            <span class="tab-num">05</span>
-                            Mapeamento Digital
-                        </button>
-                    </div>
-
-                    <div class="tab-panels">
-                        <!-- Panel 1 -->
-                        <div class="tab-panel active" id="layer-1">
-                            <div class="panel-content">
-                                <span class="panel-badge">Tecnologia 01</span>
-                                <h3 class="panel-title">Laser Avançado & Luz Intensa Pulsada</h3>
-                                <p class="panel-desc">
-                                    Tecnologia de precisão para renovação celular, estímulo térmico de colágeno e
-                                    clareamento de manchas.
+                <!-- Scroll Stack Cards Container -->
+                <div class="scroll-stack-wrapper" id="scroll-stack-wrapper">
+                    
+                    <!-- Card 1: Laser Avançado & Luz Pulsada -->
+                    <article class="scroll-stack-card border-glow-card" data-card-index="0" id="tech-card-0">
+                        <div class="stack-card-inner">
+                            <div class="stack-card-content">
+                                <div class="stack-card-meta">
+                                    <span class="stack-badge">Tecnologia 01</span>
+                                    <span class="stack-tag">Renovação Cutânea & Melasma</span>
+                                </div>
+                                <h3 class="stack-card-title">Laser Avançado & Luz Intensa Pulsada</h3>
+                                <p class="stack-card-desc">
+                                    Tecnologia de precisão fotoacústica para renovação celular profunda, estímulo térmico de colágeno e clareamento homogêneo de manchas com máxima segurança.
                                 </p>
-                                <ul class="check-list">
-                                    <li><span class="check-icon">✓</span> Suavização de poros dilatos e textura
-                                        irregular da pele.</li>
-                                    <li><span class="check-icon">✓</span> Tratamento ético para melasma, sardas e
-                                        manchas de sol.</li>
-                                    <li><span class="check-icon">✓</span> Estimulação de colágeno sem necessidade de
-                                        longo repouso.</li>
+                                <ul class="stack-check-list">
+                                    <li><span class="check-icon">✓</span> Suavização perceptível de poros dilatados e textura irregular.</li>
+                                    <li><span class="check-icon">✓</span> Protocolo médico padrão ouro para melasma, sardas e fotoenvelhecimento.</li>
+                                    <li><span class="check-icon">✓</span> Estimulação de neocolagênese dérmica com recuperação rápida.</li>
                                 </ul>
+                                <div class="stack-pills-row">
+                                    <span class="stack-feature-pill">Colágeno Dérmico</span>
+                                    <span class="stack-feature-pill">Uniformização de Tom</span>
+                                    <span class="stack-feature-pill">Sem Down Time</span>
+                                </div>
+                            </div>
+                            <div class="stack-card-visual">
+                                <div class="stack-image-frame">
+                                    <img src="assets/images/treatment_laser.jpg" alt="Laser Avançado e Luz Intensa Pulsada" class="stack-img" loading="lazy">
+                                </div>
                             </div>
                         </div>
+                    </article>
 
-                        <!-- Panel 2 -->
-                        <div class="tab-panel" id="layer-2">
-                            <div class="panel-content">
-                                <span class="panel-badge">Tecnologia 02</span>
-                                <h3 class="panel-title">Bioestimuladores de Colágeno</h3>
-                                <p class="panel-desc">
-                                    Substâncias injetáveis biocompatíveis que estimulam o organismo a produzir seu
-                                    próprio colágeno.
+                    <!-- Card 2: Bioestimuladores de Colágeno -->
+                    <article class="scroll-stack-card border-glow-card" data-card-index="1" id="tech-card-1">
+                        <div class="stack-card-inner">
+                            <div class="stack-card-content">
+                                <div class="stack-card-meta">
+                                    <span class="stack-badge">Tecnologia 02</span>
+                                    <span class="stack-tag">Sustentação Biológica & Firmeza</span>
+                                </div>
+                                <h3 class="stack-card-title">Bioestimuladores de Colágeno</h3>
+                                <p class="stack-card-desc">
+                                    Substâncias injetáveis biocompatíveis consolidadas que estimulam o organismo a produzir seu próprio colágeno de forma progressiva e duradoura.
                                 </p>
-                                <ul class="check-list">
-                                    <li><span class="check-icon">✓</span> Combate à flacidez facial e corporal de forma
-                                        progressiva.</li>
-                                    <li><span class="check-icon">✓</span> Melhora da espessura, sustentação e firmeza da
-                                        pele.</li>
-                                    <li><span class="check-icon">✓</span> Resultados duradouros e com aparência
-                                        completamente natural.</li>
+                                <ul class="stack-check-list">
+                                    <li><span class="check-icon">✓</span> Combate à flacidez facial e cervical restaurando o suporte tecidual.</li>
+                                    <li><span class="check-icon">✓</span> Melhora substancial da espessura, turgor e viço natural da pele.</li>
+                                    <li><span class="check-icon">✓</span> Resultados elegantes, graduais e com efeito antigravidade natural.</li>
                                 </ul>
+                                <div class="stack-pills-row">
+                                    <span class="stack-feature-pill">Radiesse® & Sculptra®</span>
+                                    <span class="stack-feature-pill">Efeito Antigravidade</span>
+                                    <span class="stack-feature-pill">Biocompatível</span>
+                                </div>
+                            </div>
+                            <div class="stack-card-visual">
+                                <div class="stack-image-frame">
+                                    <img src="assets/images/treatment_colageno.jpg" alt="Bioestimuladores de Colágeno" class="stack-img" loading="lazy">
+                                </div>
                             </div>
                         </div>
+                    </article>
 
-                        <!-- Panel 3 -->
-                        <div class="tab-panel" id="layer-3">
-                            <div class="panel-content">
-                                <span class="panel-badge">Tecnologia 03</span>
-                                <h3 class="panel-title">Ultrassom Microfocado (Lifting Não Invasivo)</h3>
-                                <p class="panel-desc">
-                                    Atinge as camadas mais profundas da pele promovendo pontos de coagulação que
-                                    tracionam e firmam os tecidos.
+                    <!-- Card 3: Ultrassom Microfocado (Ultraformer MPT) -->
+                    <article class="scroll-stack-card border-glow-card" data-card-index="2" id="tech-card-2">
+                        <div class="stack-card-inner">
+                            <div class="stack-card-content">
+                                <div class="stack-card-meta">
+                                    <span class="stack-badge">Tecnologia 03</span>
+                                    <span class="stack-tag">Lifting Facial Não Invasivo</span>
+                                </div>
+                                <h3 class="stack-card-title">Ultrassom Microfocado (Ultraformer MPT)</h3>
+                                <p class="stack-card-desc">
+                                    Atinge as camadas fasciais profundas (sistema SMAS) gerando micropontos de coagulação que tracionam a musculatura e firmam os contornos faciais.
                                 </p>
-                                <ul class="check-list">
-                                    <li><span class="check-icon">✓</span> Definição do contorno mandibular e redução da
-                                        papada.</li>
-                                    <li><span class="check-icon">✓</span> Efeito lifting natural sem cortes ou cirurgia.
-                                    </li>
-                                    <li><span class="check-icon">✓</span> Estímulo de colágeno nas camadas profundas e
-                                        fasciais.</li>
+                                <ul class="stack-check-list">
+                                    <li><span class="check-icon">✓</span> Definição nítida do contorno da mandíbula e compactação da papada.</li>
+                                    <li><span class="check-icon">✓</span> Efeito lifting expressivo sem cortes cirúrgicos, anestesia ou cicatrizes.</li>
+                                    <li><span class="check-icon">✓</span> Estímulo térmico focado com micropulsos ultra-rápidos e confortáveis.</li>
                                 </ul>
+                                <div class="stack-pills-row">
+                                    <span class="stack-feature-pill">Tecnologia MPT</span>
+                                    <span class="stack-feature-pill">Sem Cortes</span>
+                                    <span class="stack-feature-pill">Contorno Mandibular</span>
+                                </div>
+                            </div>
+                            <div class="stack-card-visual">
+                                <div class="stack-image-frame">
+                                    <img src="assets/images/treatment_ultraformer.jpg" alt="Ultrassom Microfocado Ultraformer MPT" class="stack-img" loading="lazy">
+                                </div>
                             </div>
                         </div>
+                    </article>
 
-                        <!-- Panel 4 -->
-                        <div class="tab-panel" id="layer-4">
-                            <div class="panel-content">
-                                <span class="panel-badge">Tecnologia 04</span>
-                                <h3 class="panel-title">Microagulhamento Robótico & Drug Delivery</h3>
-                                <p class="panel-desc">
-                                    Agulhas banhadas a ouro com radiofrequência que entregam ativos dermatológicos
-                                    diretamente onde a pele precisa.
+                    <!-- Card 4: Microagulhamento Robótico & Drug Delivery -->
+                    <article class="scroll-stack-card border-glow-card" data-card-index="3" id="tech-card-3">
+                        <div class="stack-card-inner">
+                            <div class="stack-card-content">
+                                <div class="stack-card-meta">
+                                    <span class="stack-badge">Tecnologia 04</span>
+                                    <span class="stack-tag">Radiofrequência & Drug Delivery</span>
+                                </div>
+                                <h3 class="stack-card-title">Microagulhamento Robótico com Radiofrequência</h3>
+                                <p class="stack-card-desc">
+                                    Microagulhas banhadas a ouro com disparo eletrônico preciso e radiofrequência integrada, entregando ativos dermatológicos esterilizados direto na derme.
                                 </p>
-                                <ul class="check-list">
-                                    <li><span class="check-icon">✓</span> Tratamento profundo de cicatrizes de acne e
-                                        estrias.</li>
-                                    <li><span class="check-icon">✓</span> Permeação máxima de princípios ativos
-                                        concentrados.</li>
-                                    <li><span class="check-icon">✓</span> Estímulo duplo de elastina e remodelação
-                                        tecidual.</li>
+                                <ul class="stack-check-list">
+                                    <li><span class="check-icon">✓</span> Tratamento potente para cicatrizes de acne, textura e poros acentuados.</li>
+                                    <li><span class="check-icon">✓</span> Drug Delivery estéril com absorção maximizada de fatores de crescimento.</li>
+                                    <li><span class="check-icon">✓</span> Dupla indução de colágeno: mecânica por microagulhas e térmica por RF.</li>
                                 </ul>
+                                <div class="stack-pills-row">
+                                    <span class="stack-feature-pill">Agulhas Banhadas a Ouro</span>
+                                    <span class="stack-feature-pill">Drug Delivery</span>
+                                    <span class="stack-feature-pill">Cicatrizes de Acne</span>
+                                </div>
+                            </div>
+                            <div class="stack-card-visual">
+                                <div class="stack-image-frame">
+                                    <img src="assets/images/microagulhamento_robotico.jpg" alt="Microagulhamento Robótico com Radiofrequência" class="stack-img" loading="lazy">
+                                </div>
                             </div>
                         </div>
+                    </article>
 
-                        <!-- Panel 5 -->
-                        <div class="tab-panel" id="layer-5">
-                            <div class="panel-content">
-                                <span class="panel-badge">Tecnologia 05</span>
-                                <h3 class="panel-title">Mapeamento Digital da Pele</h3>
-                                <p class="panel-desc">
-                                    Análise profunda por imagem para avaliar manchas subclínicas, vascularização, poros
-                                    e hidratação.
+                    <!-- Card 5: Mapeamento Digital da Pele -->
+                    <article class="scroll-stack-card border-glow-card" data-card-index="4" id="tech-card-4">
+                        <div class="stack-card-inner">
+                            <div class="stack-card-content">
+                                <div class="stack-card-meta">
+                                    <span class="stack-badge">Tecnologia 05</span>
+                                    <span class="stack-tag">Diagnóstico Médico Multiespectral</span>
+                                </div>
+                                <h3 class="stack-card-title">Mapeamento Digital da Pele</h3>
+                                <p class="stack-card-desc">
+                                    Sistema óptico de alta definição que analisa camadas subcutâneas invisíveis a olho nu, revelando manchas subclínicas, vascularização, poros e hidratação.
                                 </p>
-                                <ul class="check-list">
-                                    <li><span class="check-icon">✓</span> Diagnóstico preciso antes da indicação de
-                                        qualquer protocolo.</li>
-                                    <li><span class="check-icon">✓</span> Acompanhamento comparativo da evolução do
-                                        tratamento.</li>
-                                    <li><span class="check-icon">✓</span> Planejamento médico personalizado focado na
-                                        prevenção.</li>
+                                <ul class="stack-check-list">
+                                    <li><span class="check-icon">✓</span> Diagnóstico preventivo antes de qualquer intervenção estética.</li>
+                                    <li><span class="check-icon">✓</span> Acompanhamento fotográfico milimétrico da resposta terapêutica.</li>
+                                    <li><span class="check-icon">✓</span> Planejamento dermatológico personalizado com base em métricas reais.</li>
                                 </ul>
+                                <div class="stack-pills-row">
+                                    <span class="stack-feature-pill">Análise Multiespectral</span>
+                                    <span class="stack-feature-pill">Prevenção Subclínica</span>
+                                    <span class="stack-feature-pill">Protocolo Personalizado</span>
+                                </div>
+                            </div>
+                            <div class="stack-card-visual">
+                                <div class="stack-image-frame">
+                                    <img src="assets/images/mapeamento_facial_digital.jpg" alt="Mapeamento Digital da Pele" class="stack-img" loading="lazy">
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
+
                 </div>
             </div>
         </section>

@@ -1541,150 +1541,252 @@ img {
     margin: 0 auto;
 }
 
-/* 9. The 5 Layers Method Section */
-.layers-section {
+/* 9. The Technologies Section - React Bits Scroll Stack Component (@reactbits-starter/scroll-stack-tw) */
+.scroll-stack-section {
     background-color: var(--bg-primary);
+    position: relative;
+    padding-top: 6rem;
+    padding-bottom: 8rem;
+    overflow: visible;
 }
 
-.tabs-container {
-    margin-top: 3rem;
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 2.5rem;
-    align-items: start;
-}
-
-.tabs-nav {
+/* Stack Cards Wrapper */
+.scroll-stack-wrapper {
+    position: relative;
+    max-width: 1120px;
+    margin: 3.5rem auto 0;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 4.5rem;
+    padding-bottom: 2rem;
 }
 
-.tab-btn {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.15rem 1.5rem;
-    background-color: var(--bg-card-white);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    cursor: pointer;
-    text-align: left;
-    transition: all var(--transition-medium);
-}
-
-.tab-num {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--accent-brown);
-    padding: 0.2rem 0.6rem;
-    background-color: var(--tag-bg);
-    border-radius: var(--radius-sm);
-}
-
-.tab-btn:hover {
-    border-color: var(--accent-brown-border);
-    color: var(--text-primary);
-    transform: translateX(4px);
-}
-
-.tab-btn.active {
-    background-color: var(--accent-brown);
-    color: #FFFFFF;
-    border-color: var(--accent-brown);
-    box-shadow: var(--shadow-md);
-}
-
-.tab-btn.active .tab-num {
-    background-color: rgba(255, 255, 255, 0.25);
-    color: #FFFFFF;
-}
-
-.tab-panels {
-    position: relative;
-}
-
-.tab-panel {
-    display: none;
+/* Individual Sticky Stack Card */
+.scroll-stack-card {
+    position: sticky;
     background-color: var(--bg-card-white);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
-    padding: 3rem 2.5rem;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 -4px 20px -2px rgba(37, 33, 30, 0.03),
+                0 22px 50px -10px rgba(37, 33, 30, 0.12),
+                0 1px 3px rgba(37, 33, 30, 0.04);
+    overflow: hidden;
+    transform-origin: center top;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.25s ease,
+                box-shadow 0.3s ease;
+    will-change: transform, filter;
+    top: 145px;
 }
 
-.tab-panel.active {
-    display: block;
-    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+.scroll-stack-card[data-card-index="0"] { top: 135px; }
+.scroll-stack-card[data-card-index="1"] { top: 156px; }
+.scroll-stack-card[data-card-index="2"] { top: 177px; }
+.scroll-stack-card[data-card-index="3"] { top: 198px; }
+.scroll-stack-card[data-card-index="4"] { top: 219px; }
+
+/* Subtle top edge bronze highlight */
+.scroll-stack-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        rgba(168, 109, 66, 0.15) 0%, 
+        rgba(168, 109, 66, 0.85) 50%, 
+        rgba(168, 109, 66, 0.15) 100%);
+    opacity: 0.9;
+    z-index: 5;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Card Inner Split Grid */
+.stack-card-inner {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.25rem;
+    padding: 3.25rem 3.5rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
-.panel-badge {
-    display: inline-block;
-    padding: 0.3rem 0.85rem;
+/* Left Content */
+.stack-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.stack-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.15rem;
+    flex-wrap: wrap;
+}
+
+.stack-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.28rem 0.85rem;
     background-color: var(--tag-bg);
     color: var(--accent-brown);
     font-family: var(--font-heading);
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     border-radius: var(--radius-full);
-    margin-bottom: 1rem;
 }
 
-.panel-title {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
+.stack-tag {
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
 }
 
-.panel-desc {
-    font-size: 1.05rem;
+.stack-card-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 2.7vw, 2.35rem);
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.1rem;
+}
+
+.stack-card-desc {
+    font-family: var(--font-body);
+    font-size: 1.02rem;
     color: var(--text-secondary);
-    margin-bottom: 2rem;
+    line-height: 1.68;
+    margin-bottom: 1.75rem;
 }
 
-.check-list {
+.stack-check-list {
     list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem 0;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.85rem;
 }
 
-.check-list li {
+.stack-check-list li {
     display: flex;
     align-items: flex-start;
-    gap: 0.85rem;
-    font-size: 1rem;
+    gap: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
     color: var(--text-primary);
+    line-height: 1.48;
 }
 
-.check-icon {
+.stack-check-list .check-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background-color: var(--tag-bg);
     color: var(--accent-brown);
     font-weight: 700;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     flex-shrink: 0;
-    margin-top: 2px;
+    margin-top: 1px;
+}
+
+/* Micro Tags / Feature Badges */
+.stack-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0;
+}
+
+.stack-feature-pill {
+    font-family: var(--font-heading);
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+}
+
+/* Right Visual Container */
+.stack-card-visual {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stack-image-frame {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px -6px rgba(37, 33, 30, 0.14);
+    background-color: var(--bg-primary);
+}
+
+.stack-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-stack-card:hover .stack-img {
+    transform: scale(1.05);
+}
+
+/* Responsive Styles for Scroll Stack */
+@media (max-width: 980px) {
+    .stack-card-inner {
+        grid-template-columns: 1fr;
+        gap: 2.25rem;
+        padding: 2.5rem 2rem;
+    }
+
+    .stack-image-frame {
+        height: 280px;
+    }
+
+    .scroll-stack-wrapper {
+        gap: 3rem;
+        margin-top: 2.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .stack-card-inner {
+        padding: 2rem 1.25rem;
+    }
+
+    .scroll-stack-card {
+        border-radius: var(--radius-md);
+    }
+
+    .stack-card-title {
+        font-size: 1.55rem;
+    }
+
+    .stack-image-frame {
+        height: 220px;
+        border-radius: 14px;
+    }
 }
 
 /* 10. About Section */

@@ -48,26 +48,58 @@ function initApp() {
         });
     });
 
-    // 3. Interactive 5 Layers Tab Switcher
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabPanels = document.querySelectorAll('.tab-panel');
+    // 3. React Bits ScrollStack Controller (@reactbits-starter/scroll-stack-tw)
+    const stackCards = document.querySelectorAll('.scroll-stack-card');
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const targetTab = btn.getAttribute('data-tab');
+    if (stackCards.length > 0) {
+        let ticking = false;
 
-            // Deactivate all buttons & panels
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabPanels.forEach(p => p.classList.remove('active'));
+        const updateScrollStack = () => {
+            stackCards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                const cardTop = rect.top;
 
-            // Activate target button & panel
-            btn.classList.add('active');
-            const targetPanel = document.getElementById(targetTab);
-            if (targetPanel) {
-                targetPanel.classList.add('active');
+                // When the next card scrolls up and overlaps this card
+                if (index < stackCards.length - 1) {
+                    const nextCard = stackCards[index + 1];
+                    const nextRect = nextCard.getBoundingClientRect();
+                    const overlapDistance = nextRect.top - cardTop;
+
+                    if (overlapDistance < rect.height) {
+                        // Calculate smooth overlap progress [0, 1]
+                        const progress = Math.max(0, Math.min(1, 1 - (overlapDistance / rect.height)));
+
+                        // React Bits depth transforms:
+                        // Scale slightly down (0.94 min), dim brightness, subtle depth blur
+                        const scale = 1 - (progress * 0.05);
+                        const brightness = 1 - (progress * 0.12);
+                        const blur = progress * 1.2;
+
+                        card.style.transform = `scale(${scale.toFixed(4)})`;
+                        card.style.filter = `brightness(${brightness.toFixed(3)}) blur(${blur.toFixed(1)}px)`;
+                    } else {
+                        card.style.transform = 'scale(1)';
+                        card.style.filter = 'brightness(1) blur(0px)';
+                    }
+                } else {
+                    card.style.transform = 'scale(1)';
+                    card.style.filter = 'brightness(1) blur(0px)';
+                }
+            });
+
+            ticking = false;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateScrollStack);
+                ticking = true;
             }
-        });
-    });
+        }, { passive: true });
+
+        // Initial run
+        updateScrollStack();
+    }
 
     // 4. Smooth Anchor Link Scrolling with Header Offset
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
