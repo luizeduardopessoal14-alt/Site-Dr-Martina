@@ -71,19 +71,22 @@ function initApp() {
 
                         // React Bits depth transforms:
                         // Scale slightly down (0.94 min), dim brightness, subtle depth blur
+                        const isMobile = window.innerWidth <= 768;
                         const scale = 1 - (progress * 0.05);
                         const brightness = 1 - (progress * 0.12);
-                        const blur = progress * 1.2;
+                        const blur = isMobile ? 0 : progress * 1.2;
 
                         card.style.transform = `scale(${scale.toFixed(4)})`;
-                        card.style.filter = `brightness(${brightness.toFixed(3)}) blur(${blur.toFixed(1)}px)`;
+                        card.style.filter = blur > 0 
+                            ? `brightness(${brightness.toFixed(3)}) blur(${blur.toFixed(1)}px)`
+                            : `brightness(${brightness.toFixed(3)})`;
                     } else {
                         card.style.transform = 'scale(1)';
-                        card.style.filter = 'brightness(1) blur(0px)';
+                        card.style.filter = 'none';
                     }
                 } else {
                     card.style.transform = 'scale(1)';
-                    card.style.filter = 'brightness(1) blur(0px)';
+                    card.style.filter = 'none';
                 }
             });
 

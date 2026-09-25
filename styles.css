@@ -1753,15 +1753,21 @@ img {
 }
 
 /* Responsive Styles for Scroll Stack */
-@media (max-width: 980px) {
+@media (max-width: 1024px) and (min-width: 769px) {
+    .scroll-stack-card[data-card-index="0"] { top: 90px; }
+    .scroll-stack-card[data-card-index="1"] { top: 105px; }
+    .scroll-stack-card[data-card-index="2"] { top: 120px; }
+    .scroll-stack-card[data-card-index="3"] { top: 135px; }
+    .scroll-stack-card[data-card-index="4"] { top: 150px; }
+
     .stack-card-inner {
-        grid-template-columns: 1fr;
-        gap: 2.25rem;
-        padding: 2.5rem 2rem;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2rem;
+        padding: 2.25rem 2rem;
     }
 
     .stack-image-frame {
-        height: 280px;
+        height: 310px;
     }
 
     .scroll-stack-wrapper {
@@ -1770,22 +1776,106 @@ img {
     }
 }
 
-@media (max-width: 640px) {
-    .stack-card-inner {
-        padding: 2rem 1.25rem;
+@media (max-width: 768px) {
+    .scroll-stack-section {
+        padding-top: 3.5rem;
+        padding-bottom: 4.5rem;
+    }
+
+    .scroll-stack-wrapper {
+        gap: 2.25rem;
+        margin-top: 1.75rem;
     }
 
     .scroll-stack-card {
         border-radius: var(--radius-md);
+        box-shadow: 0 4px 20px -2px rgba(37, 33, 30, 0.08);
+        top: 72px;
     }
 
-    .stack-card-title {
-        font-size: 1.55rem;
+    /* Subtle compact stagger on mobile so earlier cards peek cleanly without pushing card down */
+    .scroll-stack-card[data-card-index="0"] { top: 72px; }
+    .scroll-stack-card[data-card-index="1"] { top: 80px; }
+    .scroll-stack-card[data-card-index="2"] { top: 88px; }
+    .scroll-stack-card[data-card-index="3"] { top: 96px; }
+    .scroll-stack-card[data-card-index="4"] { top: 104px; }
+
+    .stack-card-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 1.15rem;
+        padding: 1.15rem 1.1rem 1.35rem;
+    }
+
+    /* Bring the image visual to the TOP on mobile so it is 100% visible immediately */
+    .stack-card-visual {
+        order: -1;
+        width: 100%;
+        min-height: auto;
     }
 
     .stack-image-frame {
-        height: 220px;
+        width: 100%;
+        height: clamp(160px, 44vw, 210px);
         border-radius: 14px;
+        box-shadow: 0 4px 14px rgba(37, 33, 30, 0.08);
+    }
+
+    .stack-card-content {
+        width: 100%;
+    }
+
+    .stack-card-meta {
+        margin-bottom: 0.4rem;
+        gap: 0.5rem;
+    }
+
+    .stack-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .stack-tag {
+        font-size: 0.74rem;
+    }
+
+    .stack-card-title {
+        font-size: clamp(1.2rem, 4.6vw, 1.45rem);
+        line-height: 1.24;
+        margin-bottom: 0.45rem;
+    }
+
+    .stack-card-desc {
+        font-size: 0.86rem;
+        line-height: 1.5;
+        margin-bottom: 0.75rem;
+    }
+
+    .stack-check-list {
+        gap: 0.45rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .stack-check-list li {
+        font-size: 0.82rem;
+        gap: 0.55rem;
+        line-height: 1.35;
+    }
+
+    .stack-check-list .check-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 0.6rem;
+        margin-top: 1px;
+    }
+
+    .stack-pills-row {
+        gap: 0.35rem;
+    }
+
+    .stack-feature-pill {
+        font-size: 0.68rem;
+        padding: 0.18rem 0.55rem;
     }
 }
 
